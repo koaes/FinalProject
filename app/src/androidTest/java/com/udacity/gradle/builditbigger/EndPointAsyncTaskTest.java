@@ -8,6 +8,8 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
+import com.example.javajoke.JavaJoke;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +37,8 @@ public class EndPointAsyncTaskTest {
         EndpointAsyncTask asyncTask = new EndpointAsyncTask();
         Log.v("Testing","Starting AsyncTask");
 
+        String expectedJoke = JavaJoke.jokeRequest();
+
         asyncTask.execute(appContext);
 
 
@@ -43,11 +47,14 @@ public class EndPointAsyncTaskTest {
             Log.v("Testing", result);
 
         }catch (Exception e){
-            Log.v("Testing", "Something Wrong");
+            Log.v("Testing", "something");
             e.printStackTrace();
+            result = null;
         }
 
-        assertNotNull(result);
+        Log.v("Testing", "Finalresult " + result);
+        //assertNotNull(result);
+        assertTrue(result.equals(expectedJoke));
     }
 
 

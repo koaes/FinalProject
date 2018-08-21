@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JokeCreator</string>
+    <string name="no_joke">Could not find joke</string>
 </resources>
